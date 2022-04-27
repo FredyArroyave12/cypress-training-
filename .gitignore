@@ -5,7 +5,7 @@
 ### CypressIO ###
 # gitignore template for the CypressIO, browser test framework
 # website: https://www.cypress.io/
-
+cypress/integration/examples/*
 cypress/results/*
 cypress/reports/*
 cypress/screenshots/*
