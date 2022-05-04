@@ -8,11 +8,11 @@ class ShippingPage {
     this.confirmShipping = "#form .cart_navigation button";
   }
 
-  public termsChecked(): void {
+  public acceptTerms(): void {
     cy.get(this.termsCheck).click();
   }
 
-  public shippingConfirmed(): void {
+  public confirmChipping(): void {
     cy.get(this.confirmShipping).click();
   }
 }

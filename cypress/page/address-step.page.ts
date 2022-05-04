@@ -6,7 +6,7 @@ class AdressStepPage {
     this.addresConfirm = ".cart_navigation button";
   }
 
-  public adressConfirmed(): void {
+  public checkAddress(): void {
     cy.get(this.addresConfirm).click();
   }
 }

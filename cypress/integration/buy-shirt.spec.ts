@@ -1,9 +1,16 @@
-// eslint-disable-next-line max-len
-import {AdressStepPage, LoginPage, MenuContentPage, PaymentPage, ProductListPage, ShippingPage, ShopingCardPage} from "../page/index";
+
+import {
+  AdressStepPage,
+  LoginPage,
+  MenuContentPage,
+  PaymentPage,
+  ProductListPage,
+  ShippingPage,
+  ShoppingCardPage} from "../page/index";
 
 const menuContentPage = new MenuContentPage();
 const productListPage = new ProductListPage();
-const shopingCardPage = new ShopingCardPage();
+const shoppingCardPage = new ShoppingCardPage();
 const loginPage = new LoginPage();
 const adressStepPage = new AdressStepPage();
 const shippingPage = new ShippingPage();
@@ -18,31 +25,31 @@ describe("Buy a t-shirt", () => {
     // ).click();
     // cy.get("#layer_cart").should("be.visible");
     // cy.get(".clearfix .button-container > a" ).click();
-    productListPage.addToCardButton();
-    productListPage.modalViewVisible();
+    productListPage.addItem();
     productListPage.checkOut();
     // cy.get(".cart_navigation span").click();
-    shopingCardPage.proccedSummary();
+    shoppingCardPage.proccedSummary();
     // cy.get("#email").type("aperdomobo@gmail.com");
     // cy.get("#passwd").type("WorkshopProtractor");
     // cy.get("div.form_content button span .icon-lock").click();
-    loginPage.emailField();
-    loginPage.passwordField();
-    loginPage.loginConfirmed();
+    loginPage.login("aperdomobo@gmail.com", "WorkshopProtractor");
+    loginPage.loginConfirm();
     // cy.get(".cart_navigation button").click();
-    adressStepPage.adressConfirmed();
+    adressStepPage.checkAddress();
     // cy.get("div.order_carrier_content .checkbox span").click();
     // cy.get("#form .cart_navigation button").click();
-    shippingPage.termsChecked();
-    shippingPage.shippingConfirmed();
+    shippingPage.acceptTerms();
+    shippingPage.confirmChipping();
     // cy.get("p.payment_module > a.bankwire").click();
     // cy.get("p.cart_navigation > button").click();
     // cy.get("#center_column > div > p > strong").should(
     //     "have.text",
     //     "Your order on My Store is complete.",
     // );
-    paymentPage.bankSelected();
-    paymentPage.orderConfirmed();
-    paymentPage.orderCompleted();
+    paymentPage.selectBank();
+    paymentPage.confirmOrder();
+    paymentPage
+        .checkOrder()
+        .should("have.text", "Your order on My Store is complete.");
   });
 });

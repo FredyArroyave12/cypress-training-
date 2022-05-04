@@ -1,5 +1,5 @@
 /* eslint-disable require-jsdoc */
-class ShopingCardPage {
+class ShoppingCardPage {
   private checkOutSummary : string;
 
   constructor() {
@@ -10,4 +10,4 @@ class ShopingCardPage {
     cy.get(this.checkOutSummary).click();
   }
 }
-export {ShopingCardPage};
+export {ShoppingCardPage};

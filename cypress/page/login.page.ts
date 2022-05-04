@@ -10,15 +10,12 @@ class LoginPage {
     this.loginButton = "div.form_content button span .icon-lock";
   }
 
-  public emailField(): void {
-    cy.get(this.emailType).type("aperdomobo@gmail.com");
+  public login(email:string, password:string): void {
+    cy.get(this.emailType).type(email);
+    cy.get(this.passwordType).type(password);
   }
 
-  public passwordField(): void {
-    cy.get(this.passwordType).type("WorkshopProtractor");
-  }
-
-  public loginConfirmed(): void {
+  public loginConfirm(): void {
     cy.get(this.loginButton).click();
   }
 }
