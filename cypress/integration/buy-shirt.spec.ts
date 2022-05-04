@@ -1,18 +1,18 @@
 
 import {
-  AdressStepPage,
+  AddressStepPage,
   LoginPage,
   MenuContentPage,
   PaymentPage,
   ProductListPage,
   ShippingPage,
-  ShoppingCardPage} from "../page/index";
+  ShoppingCartPage} from "../page/index";
 
 const menuContentPage = new MenuContentPage();
 const productListPage = new ProductListPage();
-const shoppingCardPage = new ShoppingCardPage();
+const shoppingCartPage = new ShoppingCartPage();
 const loginPage = new LoginPage();
-const adressStepPage = new AdressStepPage();
+const addressStepPage = new AddressStepPage();
 const shippingPage = new ShippingPage();
 const paymentPage = new PaymentPage();
 
@@ -28,18 +28,18 @@ describe("Buy a t-shirt", () => {
     productListPage.addItem();
     productListPage.checkOut();
     // cy.get(".cart_navigation span").click();
-    shoppingCardPage.proccedSummary();
+    shoppingCartPage.proceedSummary();
     // cy.get("#email").type("aperdomobo@gmail.com");
     // cy.get("#passwd").type("WorkshopProtractor");
     // cy.get("div.form_content button span .icon-lock").click();
-    loginPage.login("aperdomobo@gmail.com", "WorkshopProtractor");
-    loginPage.loginConfirm();
+    loginPage.digitCredentials("aperdomobo@gmail.com", "WorkshopProtractor");
+    loginPage.login();
     // cy.get(".cart_navigation button").click();
-    adressStepPage.checkAddress();
+    addressStepPage.checkAddress();
     // cy.get("div.order_carrier_content .checkbox span").click();
     // cy.get("#form .cart_navigation button").click();
     shippingPage.acceptTerms();
-    shippingPage.confirmChipping();
+    shippingPage.confirmShipping();
     // cy.get("p.payment_module > a.bankwire").click();
     // cy.get("p.cart_navigation > button").click();
     // cy.get("#center_column > div > p > strong").should(

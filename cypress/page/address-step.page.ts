@@ -1,13 +1,13 @@
 /* eslint-disable require-jsdoc */
-class AdressStepPage {
-  private addresConfirm: string;
+class AddressStepPage {
+  private addressConfirm: string;
 
   constructor() {
-    this.addresConfirm = ".cart_navigation button";
+    this.addressConfirm = ".cart_navigation button";
   }
 
   public checkAddress(): void {
-    cy.get(this.addresConfirm).click();
+    cy.get(this.addressConfirm).click();
   }
 }
-export {AdressStepPage};
+export {AddressStepPage};

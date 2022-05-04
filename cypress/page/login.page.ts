@@ -10,12 +10,12 @@ class LoginPage {
     this.loginButton = "div.form_content button span .icon-lock";
   }
 
-  public login(email:string, password:string): void {
+  public digitCredentials(email:string, password:string): void {
     cy.get(this.emailType).type(email);
     cy.get(this.passwordType).type(password);
   }
 
-  public loginConfirm(): void {
+  public login(): void {
     cy.get(this.loginButton).click();
   }
 }
