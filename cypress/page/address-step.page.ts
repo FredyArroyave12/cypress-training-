@@ -3,7 +3,7 @@ class AddressStepPage {
   private addressConfirm: string;
 
   constructor() {
-    this.addressConfirm = ".cart_navigation button";
+    this.addressConfirm = "button[name='processAddress']";
   }
 
   public checkAddress(): void {

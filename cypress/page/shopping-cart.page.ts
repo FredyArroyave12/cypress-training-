@@ -3,7 +3,7 @@ class ShoppingCartPage {
   private checkOutSummary : string;
 
   constructor() {
-    this.checkOutSummary = ".cart_navigation span";
+    this.checkOutSummary = ".cart_navigation > .standard-checkout";
   }
 
   public proceedSummary(): void {

@@ -5,9 +5,9 @@ class PaymentPage {
   private completOrder: string;
 
   constructor() {
-    this.bankSelect = "p.payment_module > a.bankwire";
-    this.orderConfirm = "p.cart_navigation > button";
-    this.completOrder = "#center_column > div > p > strong";
+    this.bankSelect = "a.bankwire";
+    this.orderConfirm = ".cart_navigation button";
+    this.completOrder = ".cheque-indent > strong.dark";
   }
 
   public selectBank(): void {

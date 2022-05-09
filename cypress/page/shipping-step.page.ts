@@ -4,8 +4,8 @@ class ShippingPage {
   private confirmShippingButton: string;
 
   constructor() {
-    this.termsCheck = "div.order_carrier_content .checkbox span";
-    this.confirmShippingButton = "#form .cart_navigation button";
+    this.termsCheck = "input#cgv";
+    this.confirmShippingButton = "button[name='processCarrier']";
   }
 
   public acceptTerms(): void {
