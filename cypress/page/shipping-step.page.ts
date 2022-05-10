@@ -4,7 +4,7 @@ class ShippingPage {
   private confirmShippingButton: string;
 
   constructor() {
-    this.termsCheck = "input#cgv";
+    this.termsCheck = "#cgv";
     this.confirmShippingButton = "button[name='processCarrier']";
   }
 
