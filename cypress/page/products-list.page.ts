@@ -11,11 +11,11 @@ class ProductListPage {
     this.proceedCheckOut = "a[title='Proceed to checkout']";
     this.selectProduct = ".product-container";
   }
-  private findPructByName(name: string): any {
+  private findProductByName(name: string): any {
     return cy.get(this.selectProduct).filter(`:contains("${name}")`);
   }
   public addItem(name: string): void {
-    this.findPructByName(name).find(this.addToCard).click();
+    this.findProductByName(name).find(this.addToCard).click();
   }
   public checkOut(): void {
     cy.get(this.modalView).should("be.visible");
