@@ -36,7 +36,7 @@ describe("Buy a t-shirt", () => {
     const orderConfirmedMessage = "Your order on My Store is complete.";
     // act
     menuContentPage.goToTShirtMenu();
-    productListPage.addItem();
+    productListPage.addItem("Faded Short Sleeve T-shirts");
     productListPage.checkOut();
     shoppingCartPage.proceedSummary();
     loginPage.digitCredentials(user, pass);
