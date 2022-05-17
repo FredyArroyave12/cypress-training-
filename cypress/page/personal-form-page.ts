@@ -1,4 +1,15 @@
 /* eslint-disable require-jsdoc */
+interface personalInformation {
+  name: string;
+  lastName: string;
+  email: string;
+  gender: string;
+  mobileNumber: string;
+  hobbies: string[];
+  currentAddress: string;
+  state: string;
+  city: string;
+}
 class PersonalFormPage {
   private personalFormUrl: string;
   private form: string;
@@ -19,7 +30,7 @@ class PersonalFormPage {
     this.firstName = "#firstName";
     this.lastName ="#lastName";
     this.email = "#userEmail";
-    this.gender = "#genterWrapper .col-md-9";
+    this.gender = "#genterWrapper input";
     this.mobileNumber = "#userNumber";
     this.hobbies = "#hobbiesWrapper .col-md-9 ";
     this.currentAddress = "#currentAddress";
@@ -31,22 +42,19 @@ class PersonalFormPage {
     cy.visit(this.personalFormUrl);
   }
 
-  private findGenderByName(gender: string):any {
-    return cy.get(this.gender).filter(`:contains("${gender}")`);
-  }
 
   private findHobbiesByName(hobbies:string[]):any {
-    hobbies.forEach((hobbie) => {
-      cy.get(this.hobbies).find(`label:contains("${hobbie}")`).click();
+    hobbies.forEach((hobby) => {
+      cy.get(this.hobbies).find(`label:contains("${hobby}")`).click();
     });
   }
-  public fillForm(personalInformation:any): void {
+  public fillForm(personalInformation:personalInformation): void {
     cy.get(this.firstName).type(personalInformation.name);
     cy.get(this.lastName).type(personalInformation.lastName);
     cy.get(this.email).type(personalInformation.email);
-    this.findGenderByName(personalInformation.gender).find(`label:contains("${personalInformation.gender}")`).click();
+    // eslint-disable-next-line cypress/no-force
+    cy.get(this.gender).filter(`[value="${personalInformation.gender}"]`).check({force: true});
     cy.get(this.mobileNumber).type(personalInformation.mobileNumber);
-    expect(personalInformation.mobileNumber).to.have.lengthOf(10);
     this.findHobbiesByName(personalInformation.hobbies);
     cy.get(this.currentAddress).type(personalInformation.currentAddress);
     cy.get(this.state).type(`${personalInformation.state}{enter}`);

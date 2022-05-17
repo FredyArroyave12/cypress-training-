@@ -10,6 +10,8 @@ cypress/results/*
 cypress/reports/*
 cypress/screenshots/*
 cypress/videos/*
+cypress/downloads/*
+cypress/fixtures/*
 
 ### macOS ###
 # General
