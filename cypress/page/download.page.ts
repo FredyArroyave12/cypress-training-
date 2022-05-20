@@ -22,22 +22,26 @@ class DownloadFilePage {
     cy.visit(this.downloadUrlPage);
   }
 
-  public downloadTextData(textTest: string): void {
+  public setDataText(textTest: string): void {
     cy.get(this.typeText).type(textTest);
+  }
+  public downloadTextData():void {
     cy.get(this.generateTextFile).click();
     cy.get(this.linkDownloadText).click();
   }
-  public downloadConfirmText():any {
-    return cy.readFile("cypress/downloads/info.txt");
+  public getFileContent(path:string):any {
+    return cy.readFile(path);
   }
-  public downloadPdfData(pdfTest: string): void {
+  public setDataPdf(pdfTest: string): void {
     cy.get(this.typePdf).type(pdfTest);
+  }
+
+  public downloadPdfData():void {
     cy.get(this.generatePdfFile).click();
     cy.get(this.linkDownloadPdf).click();
   }
-
-  public downloadConfirmPdf(): any {
-    return cy.readFile("cypress/downloads/info.pdf");
+  public downloadConfirmPdf(pathP:string): any {
+    return cy.readFile(pathP);
   }
 }
 

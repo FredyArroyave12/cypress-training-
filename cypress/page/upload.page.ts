@@ -15,12 +15,12 @@ class UploadFilePage {
   public visitUploadPage(): void {
     cy.visit(this.uploadUrlPage);
   }
-  public getFile(fileName:string):void {
+  public uploadFile(fileName:string):void {
     cy.get(this.browse).attachFile(fileName);
     cy.get(this.uploadbtn).click();
   }
 
-  public uploadConfirm() {
+  public getUploadedFileName() {
     return cy.get(this.titleFile);
   }
 }

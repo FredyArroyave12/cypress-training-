@@ -3,8 +3,10 @@ const fileName = "terminal-screen.png";
 const textTest =
   "Lorem Ipsum is simply dummy text of the printing and typesetting indust";
 const pdfTest = "the user navigates to the upload and download file page should";
+const pathText = "cypress/downloads/info.txt";
+const pathPdf = "cypress/downloads/info.pdf";
 
-describe("the user navigates to the upload and download file page should", () => {
+describe("the user navigates", () => {
   let uploadPage: UploadFilePage;
   let downloadPage: DownloadFilePage;
 
@@ -15,23 +17,23 @@ describe("the user navigates to the upload and download file page should", () =>
 
   it("should upload file and verify the file title", () => {
     // arrange
-    const fileConfirmTitle = "terminal_screen.png";
     uploadPage.visitUploadPage();
     // action
-    uploadPage.getFile(fileName);
-
+    uploadPage.uploadFile(fileName);
     // asserts
-    uploadPage.uploadConfirm().should("contain", fileConfirmTitle);
+    uploadPage.getUploadedFileName().should("contain", "terminal_screen.png");
   });
 
   it("should select a file to download and verify data", () => {
     // arrange
     downloadPage.visitDownloadPage();
     // action
-    downloadPage.downloadTextData(textTest);
-    downloadPage.downloadPdfData(pdfTest);
+    downloadPage.setDataText(textTest);
+    downloadPage.downloadTextData();
+    downloadPage.setDataPdf(pdfTest);
+    downloadPage.downloadPdfData();
     // asserts
-    downloadPage.downloadConfirmText().should("eq", textTest);
-    downloadPage.downloadConfirmPdf().should("eq", pdfTest);
+    downloadPage.getFileContent(pathText).should("eq", textTest);
+    downloadPage.getFileContent(pathPdf).should("eq", pdfTest);
   });
 });
