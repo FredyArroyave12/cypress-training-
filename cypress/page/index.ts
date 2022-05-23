@@ -9,4 +9,5 @@ export {DressesListPage} from "./dresses-list-page";
 export {UploadFilePage} from "./upload.page";
 export {DownloadFilePage} from "./download.page";
 export {PersonalFormPage} from "./personal-form-page";
+export {IframePage} from "./iframe.page";
 
