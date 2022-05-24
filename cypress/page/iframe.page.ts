@@ -3,11 +3,13 @@ class IframePage {
   private urlPage: string;
   private iframeSelector: string;
   private cssLink: string;
+  private cssUrl:string;
 
   constructor() {
     this.urlPage = "https://www.w3schools.com/html/html_iframe.asp";
     this.iframeSelector = "[title='W3Schools HTML Tutorial']";
     this.cssLink = "[title='CSS Tutorial']";
+    this.cssUrl = "https://www.w3schools.com/css/default.asp";
   }
 
   public visit():void {
@@ -21,7 +23,7 @@ class IframePage {
   public goToCssPageInFrame():any {
     cy.iframe(this.iframeSelector).find(this.cssLink).click();
     cy.frameLoaded(this.iframeSelector, {
-      url: "https://www.w3schools.com/css/default.asp",
+      url: this.cssUrl,
     });
   }
 }
