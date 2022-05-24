@@ -14,23 +14,15 @@ class IframePage {
     cy.visit(this.urlPage);
   }
 
-  private getIframeDocument():any {
-    return cy.get(this.iframeSelector).its("0.contentDocument");
-  }
-
-  private getIframeBody():any {
-    return this.getIframeDocument().its("body").then(cy.wrap);
-  }
-
   public getTitle(): any {
-    return this.getIframeBody().find("h1");
+    return cy.iframe(this.iframeSelector).find("h1").its(0);
   }
 
   public goToCssPageInFrame():any {
-    return this.getIframeBody().find(this.cssLink).click();
-  }
-  public cssPageConfirmed(): any {
-    return this.getIframeBody().filter(":contains('CSS Tutorial')");
+    cy.iframe(this.iframeSelector).find(this.cssLink).click();
+    cy.frameLoaded(this.iframeSelector, {
+      url: "https://www.w3schools.com/css/default.asp",
+    });
   }
 }
 

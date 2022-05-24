@@ -8,14 +8,21 @@ describe("the user navigates to the Iframe  page should", () => {
     iframePage = new IframePage();
   });
 
-  it("show form and fill the personal form ", () => {
+  it("should be able to see the HTML tutorial in the iframe", () => {
     // arrange
     iframePage.visit();
     // action
     iframePage.getTitle();
-    iframePage.goToCssPageInFrame();
     // asserts
     iframePage.getTitle().should("include.text", "HTML Tutorial");
-    iframePage.cssPageConfirmed().should("include.text", "CSS Tutorial");
+  });
+
+  it("should navigates to the CSS Tutorial page in the iframe", () => {
+    // arrange
+    iframePage.visit();
+    // action
+    iframePage.goToCssPageInFrame();
+    // asserts
+    iframePage.getTitle().should("include.text", "CSS Tutorial");
   });
 });
