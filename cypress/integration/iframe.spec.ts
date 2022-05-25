@@ -12,7 +12,6 @@ describe("the user navigates to the Iframe  page should", () => {
     // arrange
     iframePage.visit();
     // action
-    iframePage.getTitle();
     // asserts
     iframePage.getTitle().should("include.text", "HTML Tutorial");
   });
